@@ -5,7 +5,7 @@ import java.net.Socket;
 
 public class JokeServer {
 
-	public static void main(String[] args) throws IOException {		
+	public static void main(String[] args) throws Exception {		
 		ServerSocket listen_for_connect = new ServerSocket(9069);
 		 try {
 	            while (true) {
@@ -13,6 +13,9 @@ public class JokeServer {
 	                try {
 	                    PrintWriter connect_message = new PrintWriter(socket.getOutputStream(), true);
 	                    connect_message.println("Uhm, I think your connected on port :" + listen_for_connect.getLocalPort() );
+	                    Runnable run_this = new ReadJokeThread("jokes.txt");
+	                    Thread new_joke_thread = new Thread(run_this);
+	                    new_joke_thread.start();
 	                } finally {
 	                    socket.close();
 	                }
