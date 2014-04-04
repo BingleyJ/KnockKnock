@@ -5,23 +5,21 @@ import java.net.Socket;
 
 public class JokeServer {
 
-	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
-		
-		ServerSocket listener = new ServerSocket(9090);
+	public static void main(String[] args) throws IOException {		
+		ServerSocket listen_for_connect = new ServerSocket(9069);
 		 try {
 	            while (true) {
-	                Socket socket = listener.accept();
+	                Socket socket = listen_for_connect.accept();
 	                try {
-	                    PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-	                    out.println("Uhm, I think your connected eh.");
+	                    PrintWriter connect_message = new PrintWriter(socket.getOutputStream(), true);
+	                    connect_message.println("Uhm, I think your connected on port :" + listen_for_connect.getLocalPort() );
 	                } finally {
 	                    socket.close();
 	                }
 	            }
 	        }
 	        finally {
-	            listener.close();
+	            listen_for_connect.close();
 	        }
 
 	}
