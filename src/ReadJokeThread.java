@@ -23,17 +23,16 @@ public class ReadJokeThread implements Runnable {
 			Scanner count = new Scanner(new FileInputStream(file));
 			//get total number of jokes in file
 			while(s.hasNextLine()){
-				String line = s.nextLine();
+				String line = count.nextLine();
 				rows_in_file++;
 				}
 			System.out.println(rows_in_file);
 			
 			while(s.hasNextLine()){
 			String line = s.nextLine();	wordCount += new StringTokenizer(line, ":").countTokens();
-			    //show count .. prove threading is working.
-			    System.out.println("Current word count on thread #");
+			    
 			}
-		    System.out.println("Final word count on thread #");
+		   
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
