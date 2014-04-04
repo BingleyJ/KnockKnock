@@ -5,6 +5,8 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
+import javax.swing.JOptionPane;
+
 public class ReadJokeThread implements Runnable {
 
 	private String ReadFile = null;
@@ -44,10 +46,22 @@ public class ReadJokeThread implements Runnable {
 
 			String[] joke = line.split(":"); // : is what separate three parts
 												// of joke.
-
+			
+			doThejoke(joke);
+			
+			System.out.println(joke[2]); // test
+			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
+	
+	public void doThejoke(String[] inJoke){
+		JOptionPane.showMessageDialog(null, inJoke[0]);
+		JOptionPane.showMessageDialog(null, inJoke[1]);
+		JOptionPane.showMessageDialog(null, inJoke[2]);
+	}
+	
+	
 }
