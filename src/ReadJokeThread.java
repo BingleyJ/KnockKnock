@@ -18,7 +18,7 @@ public class ReadJokeThread implements Runnable {
 	public void run() {
 		try {
 			File file = new File(ReadFile);
-			Scanner s = new Scanner(new FileInputStream(file));
+			Scanner get_joke = new Scanner(new FileInputStream(file));
 			//for counting lines in joke file
 			Scanner count = new Scanner(new FileInputStream(file));
 			//get total number of jokes in file
@@ -26,10 +26,11 @@ public class ReadJokeThread implements Runnable {
 				String line = count.nextLine();
 				rows_in_file++;
 				}
+			//use lines in file to get a random line and knock knock joke.
 			System.out.println(rows_in_file);
 			
-			while(s.hasNextLine()){
-			String line = s.nextLine();	wordCount += new StringTokenizer(line, ":").countTokens();
+			while(get_joke.hasNextLine()){
+			String line = get_joke.nextLine();	wordCount += new StringTokenizer(line, ":").countTokens();
 			    
 			}
 		   
