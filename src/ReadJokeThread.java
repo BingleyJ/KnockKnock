@@ -12,6 +12,9 @@ public class ReadJokeThread implements Runnable {
 	private String ReadFile = null;
 
 	private int rows_in_file = 0;
+	
+	private String response1;
+	private String response2;
 
 	// @param inFile file to have words counted
 	public ReadJokeThread(String inFile) throws Exception {
@@ -59,7 +62,9 @@ public class ReadJokeThread implements Runnable {
 	
 	public void doThejoke(String[] inJoke){
 		JOptionPane.showMessageDialog(null, inJoke[0]);
+		JOptionPane.showInputDialog(response1);
 		JOptionPane.showMessageDialog(null, inJoke[1]);
+		JOptionPane.showInputDialog(response2);
 		JOptionPane.showMessageDialog(null, inJoke[2]);
 	}
 	
