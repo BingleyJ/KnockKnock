@@ -22,7 +22,7 @@ public class ReadJokeThread implements Runnable {
 			//for counting lines in joke file
 			Scanner count = new Scanner(new FileInputStream(file));
 			//get total number of jokes in file
-			while(s.hasNextLine()){
+			while(count.hasNextLine()){
 				String line = count.nextLine();
 				rows_in_file++;
 				}
